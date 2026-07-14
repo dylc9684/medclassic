@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Browse and read a collection of Chinese medicine ancient books."
+    />
+    <title>中医古籍浏览器</title>
+    <link rel="preload" href="assets/library-header.png" as="image" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="书目">
+        <section class="brand-panel">
+          <img src="assets/library-header.png" alt="" />
+          <div class="brand-copy">
+            <p>TCM Ancient Books</p>
+            <h1>中医古籍浏览器</h1>
+            <span id="libraryStats">载入书目中...</span>
+          </div>
+        </section>
+
+        <section class="library-tools" aria-label="筛选书目">
+          <label class="search-field">
+            <span>搜索</span>
+            <input
+              id="librarySearch"
+              type="search"
+              autocomplete="off"
+              placeholder="书名、编号、类别"
+            />
+          </label>
+
+          <div class="select-row">
+            <label>
+              <span>类别</span>
+              <select id="categoryFilter"></select>
+            </label>
+            <label>
+              <span>排序</span>
+              <select id="sortMode">
+                <option value="number">编号</option>
+                <option value="title">书名</option>
+                <option value="size-desc">篇幅长</option>
+                <option value="size-asc">篇幅短</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="categoryRail" class="category-rail" aria-label="类别"></div>
+          <div class="result-line">
+            <strong id="resultCount">0 部</strong>
+          </div>
+        </section>
+
+        <nav id="bookList" class="book-list" aria-label="书籍列表"></nav>
+      </aside>
+
+      <main class="reader" aria-live="polite">
+        <header class="reader-header">
+          <div class="reader-title-block">
+            <p id="bookMeta">未选择</p>
+            <h2 id="bookTitle">中医古籍</h2>
+          </div>
+          <div class="reader-actions">
+            <button id="copyLink" type="button">复制链接</button>
+            <a id="downloadLink" class="button" href="#" download>下载原文</a>
+          </div>
+        </header>
+
+        <section class="reader-tools" aria-label="阅读工具">
+          <label class="search-field in-book-search">
+            <span>书内</span>
+            <input
+              id="bookSearch"
+              type="search"
+              autocomplete="off"
+              placeholder="当前书中查找"
+              disabled
+            />
+          </label>
+          <span id="bookSearchCount" class="search-count"></span>
+          <div class="step-controls">
+            <button id="prevMatch" type="button" disabled>上一处</button>
+            <button id="nextMatch" type="button" disabled>下一处</button>
+          </div>
+          <div class="step-controls">
+            <button id="fontMinus" type="button" aria-label="缩小字号">A-</button>
+            <button id="fontPlus" type="button" aria-label="放大字号">A+</button>
+          </div>
+          <label class="toggle-control">
+            <input id="verticalToggle" type="checkbox" />
+            <span>竖排</span>
+          </label>
+        </section>
+
+        <section id="readerBody" class="reader-body" aria-label="正文">
+          <pre id="bookContent" class="book-content">载入中...</pre>
+          <aside id="matchPanel" class="match-panel" hidden></aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="assets/app.js" type="module"></script>
+  </body>
+</html>

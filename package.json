@@ -1,0 +1,12 @@
+{
+  "name": "tcm-ancient-books",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "manifest": "node scripts/build-manifest.mjs",
+    "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "dev:dist": "python3 -m http.server 4173 --directory dist --bind 127.0.0.1"
+  }
+}
