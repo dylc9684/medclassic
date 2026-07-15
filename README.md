@@ -19,4 +19,8 @@ This is a static site. Use these settings in Cloudflare Pages:
 - Build output directory: `dist`
 - Root directory: repository root
 
+If Cloudflare asks for a deploy command, you are using Workers Builds. Use:
+
+- Deploy command: `npx wrangler deploy --assets ./dist`
+
 The generated `data/books.json` manifest lists every `.txt` book. The reader fetches each book on demand and decodes GB18030/GBK text in the browser, with a UTF-8 fallback.
